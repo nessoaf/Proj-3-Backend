@@ -1,0 +1,26 @@
+I couldn't sleep and I didn't have heck else to do, so here's a writeup for the morning...
+
+What's working:
+	-I debugged the routes in users.js - v1/users/test is now functioning, v1/users/register as well // debugged last night //(btw don't EVER try to debug my code without me!) :slightly_smiling_face:
+	-we can call the web API and have response data show up on the browser
+	-The registration page is working(rejects duplicate emails and registers to db) //debugged last night
+	-The frontend looks good and what we have put into testing works well, we can reach the local database and the web API.
+	-mongoDB has been working like a champ, no crashes and the one glitch I had is cleared up.
+we can call the backend and have it reach the database... THIS IS GREAT GUYS GOOD WORK!!!
+
+MVP TODOS (Sorry I'm dead-ass tired so if these aren't MVP goals please feel free to ignore them.) I'm available for debugging:
+	-I haven't tested login, but we should get this functioning.
+	-Getting data from the API to show up in the database.
+	-A profile page that rejects users who aren't logged in
+	-a search form that directs user to calender with a call to eventful with the query values appended at the end instead of our default call (forms return queries based on input values, with query keys equalling the 'name' of the input, review the 'fetch-reddit-slideshow' assignment from unit 2) - the search form should be on a page that rejects someone who isn't logged in.
+	-populating the calendar with data based on the API return. event.start_time will give you a good starting point, though I've been told that dates are kind of a pain to work with in JS. I'll look into the calendar object values first thing in the morning (this is similar on the "what would you do next?" from my p2). my idea for how to display the number of events on a given date is to compare the date value (from event_start) against the calendar date value (currently unknown), map those into an array, and display a component with dayArray.length (whatever.length) as the value.
+
+Stretch goals that I have in mind:
+	-zip code filtering for search results (this shouldn't be too hard, really we'll just have to figure out how to access the user object and set a hidden input with user.zipcode), to be done when modified searches are done, This should be allowed to be toggled (in case a user wants to search for events at another location)
+	-user settings - this could be anything, from searching with user.zipcode to avatar url.
+fix it so it doesn't break on smaller browser windows
+any others you guys can think of... let's have a meeting on stretch goals after MVP is finished.
+
+I've been having some technical issues that shouldn't hamper us too much (backend and mongo are working swimmingly) (I've spent about five hours so far with TA's on these with no dice, so you guys really shouldn't worry about it unless you already know the answer. Nothing here is gamebreaking, I just wanted to let you know why I'm being an asshole in my commits on frontend):
+	-frontend - my dotenv() doesn't work for some reason (that's why our API call is using my userkey instead of an environmental variable, so I apologize for removing all of your .env variables when I'm testing. I have a method to replace them for deploy, so don't worry about that for now. I'm doing a 1:1 or two tomorrow to clear this up. Gitmaster Nesso - if you could find a way for me to commit to a private branch so I can work with modified code through git, that would be awesome +1.
+	-frontend - I also have had a CORS error when connecting to eventful through the App, which is why the cors-anywhere.heroku link is in there in the first place. This is a pretty significant performance loss for me, but it shouldn't be too much of an issue. 1:1 time with Anna on this one.
